@@ -7,6 +7,6 @@
 2,假设service上游为www.xxx.com,path为/test/v1,route配置请求规则是路径为/login<br>
 3,那么当用户发起一个http://127.0.0.1:8000/login的请求将会被转发到http://www.xxx.com/test/v1/login.<br>
 4,后续所有对此上游的请求也只需要配置route，而无需再配置service.<br>
-#插件的特殊用法
+# 插件的特殊用法
 你可以配置一个service为http://x.x.x.x:8000/,然后配置route，paths为/test.*<br>
 那么所有的请求只要带有test都将被转发到http://x.x.x.x:8000/test/（任意地址）。<br>
