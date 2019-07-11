@@ -1,0 +1,12 @@
+# change-url
+自定义港插件，更改的URL主要用来实现批量匹配，插件将会将在用户请求的URL路径加上服务路径，然后再转发到上游服务器。
+# 使用插件
+进入/usr/local/share/lua/5.1/kong，找到constants.lua文件，在文件上添加自定义插件名change-url，然后就可以通过名称直接添加了，无任何参数
+# 插件使用说明
+1,假如您配置了一个上游服务器，如：www.xxx.com,或者192.168.x.x:xx,并且您不想给每一个service配置一个route，您可以只配置一个service.
+2,假设service上游为www.xxx.com,path为/test/v1,route配置请求规则是路径为/login
+3,那么当用户发起一个http://127.0.0.1:8000/login的请求将会被转发到http://www.xxx.com/test/v1/login.
+4,后续所有对此上游的请求也只需要配置route，而无需再配置service.
+#插件的特殊用法
+你可以配置一个service为http://x.x.x.x:8000/,然后配置route，paths为/test.*
+那么所有的请求只要带有test都将被转发到http://x.x.x.x:8000/test/（任意地址）。
