@@ -7,6 +7,7 @@ return {
     { config = {
         type = "record",
         fields = {
+          { ignore_addr = { type = "string",required = false, }, },
     }, }, },
   },
 }
